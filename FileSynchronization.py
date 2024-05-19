@@ -3,6 +3,7 @@ import time
 import argparse
 import hashlib
 import logging
+import shutil
 
 logger = logging.getLogger(__name__)
 
@@ -30,7 +31,65 @@ class FileSynchronization:
 
     def _sync_files(self):
         """read, update, delete files from source to replica"""
-        pass
+        # Walk through the source folder
+        for src_dirpath, src_dirnames, src_filenames in os.walk(self.source):
+            # Calculate relative path
+            relative_dirpath = os.path.relpath(src_dirpath, self.source)
+            replica_dirpath = os.path.join(self.replica, relative_dirpath)
+
+            # Ensure all directories in the source exist in the replica
+            for src_dirname in src_dirnames:
+                src_subdirpath = os.path.join(src_dirpath, src_dirname)
+                replica_subdirpath = os.path.join(replica_dirpath, src_dirname)
+                if not os.path.exists(replica_subdirpath):
+                    self.resolve_difference(src_subdirpath, replica_subdirpath, 'create')
+
+            # Ensure all files in the source exist in the replica and are up to date
+            for src_filename in src_filenames:
+                src_filepath = os.path.join(src_dirpath, src_filename)
+                replica_filepath = os.path.join(replica_dirpath, src_filename)
+                if not os.path.exists(replica_filepath) or \
+                        self.calculate_checksum(src_filepath) != self.calculate_checksum(replica_filepath):
+                    self.resolve_difference(src_filepath, replica_filepath, 'update')
+
+        # Walk through the replica folder to find items that need to be deleted
+        for replica_dirpath, replica_dirnames, replica_filenames in os.walk(self.replica):
+            relative_dirpath = os.path.relpath(replica_dirpath, self.replica)
+            src_dirpath = os.path.join(self.source, relative_dirpath)
+
+            # Delete directories not present in the source
+            for replica_dirname in replica_dirnames:
+                replica_subdirpath = os.path.join(replica_dirpath, replica_dirname)
+                src_subdirpath = os.path.join(src_dirpath, replica_dirname)
+                if not os.path.exists(src_subdirpath):
+                    self.resolve_difference(None, replica_subdirpath, 'delete')
+
+            # Delete files not present in the source
+            for replica_filename in replica_filenames:
+                replica_filepath = os.path.join(replica_dirpath, replica_filename)
+                src_filepath = os.path.join(src_dirpath, replica_filename)
+                if not os.path.exists(src_filepath):
+                    self.resolve_difference(None, replica_filepath, 'delete')
+
+    @staticmethod
+    def resolve_difference(src_path, dst_path, action):
+        if action == 'create' or action == 'update':
+            if os.path.isdir(src_path):
+                # Create or update directory
+                if not os.path.exists(dst_path):
+                    os.makedirs(dst_path)
+                    print(f"Created directory: {dst_path}")
+            else:
+                # Copy file
+                shutil.copy2(src_path, dst_path)
+                print(f"Copied file: {src_path} -> {dst_path}")
+        elif action == 'delete':
+            if os.path.isdir(dst_path):
+                shutil.rmtree(dst_path)
+                print(f"Deleted directory: {dst_path}")
+            else:
+                os.remove(dst_path)
+                print(f"Deleted file: {dst_path}")
 
     def are_different(self, folder1_path, folder2_path, algorithm='md5') -> bool:
         """Check if two folders are different by comparing their checksums.
