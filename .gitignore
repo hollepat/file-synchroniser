@@ -1,0 +1,7 @@
+# pycharm
+.venv
+.idea
+
+# Mac OS
+.DS_Store
+
