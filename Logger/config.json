@@ -1,0 +1,29 @@
+{
+    "version": 1,
+    "disable_existing_loggers": false,
+    "formatters": {
+        "simple": {
+            "format": "%(asctime)s - %(levelname)s - %(message)s"
+        }
+    },
+    "handlers": {
+        "console": {
+            "class": "logging.StreamHandler",
+            "formatter": "simple",
+            "stream": "ext://sys.stdout"
+        },
+        "file": {
+            "class": "logging.handlers.RotatingFileHandler",
+            "formatter": "simple",
+            "filename": "logs/sync.log",
+            "maxBytes": 10000,
+            "backupCount": 3
+        }
+    },
+    "loggers": {
+        "root": {
+            "level": "DEBUG",
+            "handlers": ["console", "file"]
+        }
+    }
+}

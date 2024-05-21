@@ -1,0 +1,8 @@
+2024-05-21 19:11:07,900 - INFO - Synchronizing files from /Users/patrikholler/workspace/fileSynchronization/test/source to /Users/patrikholler/workspace/fileSynchronization/test/replica
+2024-05-21 19:11:17,841 - ERROR - Error occurred while checking modification time for /Users/patrikholler/workspace/fileSynchronization/test/source/c.txt: [Errno 2] No such file or directory: '/Users/patrikholler/workspace/fileSynchronization/test/source/c.txt'
+2024-05-21 19:11:21,013 - INFO - Folders are the same. No action needed.
+2024-05-21 19:11:26,017 - INFO - Synchronizing files from /Users/patrikholler/workspace/fileSynchronization/test/source to /Users/patrikholler/workspace/fileSynchronization/test/replica
+2024-05-21 19:11:26,020 - ERROR - Error occurred while checking modification time for /Users/patrikholler/workspace/fileSynchronization/test/source/c.txt: [Errno 2] No such file or directory: '/Users/patrikholler/workspace/fileSynchronization/test/source/c.txt'
+2024-05-21 19:11:33,867 - INFO - Exiting the program
+2024-05-21 19:11:34,142 - INFO - Synchronizing files from /Users/patrikholler/workspace/fileSynchronization/test/source to /Users/patrikholler/workspace/fileSynchronization/test/replica
+2024-05-21 19:11:34,143 - ERROR - Error occurred while checking modification time for /Users/patrikholler/workspace/fileSynchronization/test/source/c.txt: [Errno 2] No such file or directory: '/Users/patrikholler/workspace/fileSynchronization/test/source/c.txt'
