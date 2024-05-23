@@ -1,6 +1,6 @@
 # pycharm
-.venv
-.idea
+.venv/
+.idea/
 
 # Mac OS
 .DS_Store
