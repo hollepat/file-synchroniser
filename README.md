@@ -10,14 +10,12 @@ ___
 1. [Usage](#usage)
 
 ## Overview
-___
 
 This project is a command-line tool for __synchronizing files__ from a __source directory__ to a __replica directory__ at regular intervals. 
 It ensures that any changes in the source directory are mirrored in the replica directory. The tool also maintains logs of its 
 operations, providing detailed information on the synchronization process.
 
 ## Features
-___
 
 1. One-way synchronization from __source__ to __replica__ directory 
 1. Configurable synchronization interval
@@ -25,12 +23,10 @@ ___
 1. Automatic creation and deletion of files and directories in the __replica__ to match the __source__
 
 ## Environment
-___
 
 Python 3.7+
 
 ## Installation
-___
 
 - Clone the repository:
     
