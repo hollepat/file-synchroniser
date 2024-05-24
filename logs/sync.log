@@ -64,3 +64,19 @@
 2024-05-21 20:47:59,766 - INFO - Syncing files...
 2024-05-21 20:48:04,769 - INFO - Syncing files...
 2024-05-21 20:48:05,001 - INFO - Exiting the program
+2024-05-24 19:11:10,575 - INFO - Synchronizing files from /Users/patrikholler/workspace/fileSynchronization/test/source to /Users/patrikholler/workspace/fileSynchronization/test/replica every 5 seconds.
+2024-05-24 19:11:10,575 - INFO - Syncing files...
+2024-05-24 19:11:10,576 - INFO - Created file /Users/patrikholler/workspace/fileSynchronization/test/replica/b.txt
+2024-05-24 19:11:10,576 - INFO - Created folder /Users/patrikholler/workspace/fileSynchronization/test/replica/mmmh
+2024-05-24 19:11:10,577 - INFO - Created file /Users/patrikholler/workspace/fileSynchronization/test/replica/mmmh/s.txt
+2024-05-24 19:11:15,585 - INFO - No action needed.
+2024-05-24 19:11:20,590 - INFO - No action needed.
+2024-05-24 19:11:25,593 - INFO - No action needed.
+2024-05-24 19:11:30,599 - INFO - No action needed.
+2024-05-24 19:11:35,601 - INFO - No action needed.
+2024-05-24 19:11:40,609 - INFO - No action needed.
+2024-05-24 19:11:45,613 - INFO - Syncing files...
+2024-05-24 19:11:45,616 - INFO - Created folder /Users/patrikholler/workspace/fileSynchronization/test/replica/n
+2024-05-24 19:11:45,617 - INFO - Deleted file /Users/patrikholler/workspace/fileSynchronization/test/replica/b.txt
+2024-05-24 19:11:50,622 - INFO - No action needed.
+2024-05-24 19:11:54,227 - INFO - Exiting the program
