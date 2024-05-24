@@ -1,5 +1,4 @@
 # Folder Synchronization Tool
-___
 
 ## Table of Contents
 
